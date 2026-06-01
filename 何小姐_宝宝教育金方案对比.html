@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>何小姐专属｜宝宝教育金方案对比</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: #F7F4EF;
+  color: #3A3A3A;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 420px; margin: 0 auto; padding: 0; }
+
+/* 封面 */
+.hero {
+  background: #5A6B5C;
+  color: #F7F4EF;
+  padding: 48px 28px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: rgba(212, 163, 115, 0.15);
+  border-radius: 50%;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 150px; height: 150px;
+  background: rgba(247, 244, 239, 0.08);
+  border-radius: 50%;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #D4A373;
+  border: 1px solid rgba(212,163,115,0.4);
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+.hero p {
+  font-size: 15px;
+  opacity: 0.85;
+  line-height: 1.7;
+}
+.hero .client-info {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(247,244,239,0.15);
+  display: flex;
+  gap: 24px;
+}
+.hero .client-info div {
+  font-size: 13px;
+  opacity: 0.75;
+}
+.hero .client-info div strong {
+  display: block;
+  font-size: 15px;
+  opacity: 1;
+  color: #D4A373;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* 区块标题 */
+.section {
+  padding: 36px 24px;
+}
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #5A6B5C;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title .dot {
+  width: 8px; height: 8px;
+  background: #D4A373;
+  border-radius: 50%;
+  display: inline-block;
+}
+.section-sub {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 20px;
+  padding-left: 18px;
+}
+
+/* 产品卡片 */
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  border: 1px solid rgba(90,107,92,0.08);
+}
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.product-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: #3A3A3A;
+}
+.product-company {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+}
+.product-badge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.badge-aia { background: #E8F0E9; color: #5A6B5C; }
+.badge-pru { background: #EDE8F0; color: #6B5A7A; }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.product-grid .item {
+  background: #FAFAF8;
+  border-radius: 10px;
+  padding: 12px;
+}
+.product-grid .item-label {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 4px;
+}
+.product-grid .item-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #3A3A3A;
+}
+.product-grid .item-value.highlight {
+  color: #B87D4B;
+}
+.product-highlight-bar {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: #F7F4EF;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #666;
+}
+.product-highlight-bar strong {
+  color: #5A6B5C;
+}
+
+/* 对比表 */
+.compare-table {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 32% 34% 34%;
+  align-items: center;
+}
+.compare-row.header {
+  background: #5A6B5C;
+  color: #F7F4EF;
+  font-size: 13px;
+  font-weight: 500;
+}
+.compare-row.header div {
+  padding: 14px 10px;
+  text-align: center;
+}
+.compare-row.data {
+  border-bottom: 1px solid #F0EDE8;
+  font-size: 13px;
+}
+.compare-row.data:last-child { border-bottom: none; }
+.compare-row.data div {
+  padding: 13px 10px;
+  text-align: center;
+}
+.compare-row.data .dim-label {
+  text-align: left;
+  padding-left: 16px;
+  color: #666;
+  font-weight: 500;
+}
+.compare-row.data .winner {
+  background: #F0F5F0;
+  color: #5A6B5C;
+  font-weight: 600;
+}
+.compare-row.data .loser {
+  color: #888;
+}
+
+/* 场景演示 */
+.scenario-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.scenario-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #5A6B5C;
+  margin-bottom: 6px;
+}
+.scenario-desc {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 20px;
+}
+.scenario-plan {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.scenario-plan span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #666;
+  background: #F7F4EF;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.scenario-plan .arrow {
+  color: #D4A373;
+  font-size: 16px;
+}
+
+/* 收益对比卡片 */
+.result-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.result-card {
+  border-radius: 14px;
+  padding: 18px 14px;
+  text-align: center;
+  position: relative;
+}
+.result-card.aia { background: #F0F5F0; border: 1px solid #D8E5D9; }
+.result-card.pru { background: #F5F0F5; border: 1px solid #E5D8E5; }
+.result-card .rc-name {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 6px;
+}
+.result-card .rc-amount {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3A3A3A;
+  margin-bottom: 4px;
+}
+.result-card .rc-note {
+  font-size: 11px;
+  color: #999;
+}
+.result-card .rc-tag {
+  position: absolute;
+  top: -1px; right: -1px;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 0 14px 0 10px;
+  font-weight: 500;
+}
+.result-card.aia .rc-tag { background: #5A6B5C; color: #fff; }
+.result-card.pru .rc-tag { background: #6B5A7A; color: #fff; }
+
+/* 图表区 */
+.chart-area {
+  margin-top: 20px;
+}
+.chart-title {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 24px;
+  height: 160px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #E8E4DF;
+  position: relative;
+}
+.chart-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+}
+.chart-bar {
+  width: 44px;
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  transition: height 1s ease;
+}
+.chart-bar.aia { background: #87A878; }
+.chart-bar.pru { background: #A890B0; }
+.chart-bar-label {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  color: #3A3A3A;
+  white-space: nowrap;
+}
+.chart-bar-name {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* 核心差异 */
+.diff-list {
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.diff-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid #F0EDE8;
+}
+.diff-item:last-child { border-bottom: none; }
+.diff-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #5A6B5C;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.diff-content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3A3A3A;
+  margin-bottom: 4px;
+}
+.diff-content p {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.6;
+}
+.diff-content .tag-aia {
+  display: inline-block;
+  font-size: 11px;
+  color: #5A6B5C;
+  background: #E8F0E9;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+.diff-content .tag-pru {
+  display: inline-block;
+  font-size: 11px;
+  color: #6B5A7A;
+  background: #F0E8F5;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+/* 我的建议 */
+.advice-box {
+  background: #5A6B5C;
+  color: #F7F4EF;
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.advice-box::before {
+  content: "";
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 160px; height: 160px;
+  background: rgba(212, 163, 115, 0.12);
+  border-radius: 50%;
+}
+.advice-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #D4A373;
+  margin-bottom: 14px;
+}
+.advice-box h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.advice-box p {
+  font-size: 14px;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+.advice-box .highlight-text {
+  color: #D4A373;
+  font-weight: 500;
+}
+.advice-box ul {
+  list-style: none;
+  margin: 14px 0;
+}
+.advice-box ul li {
+  font-size: 14px;
+  line-height: 1.9;
+  opacity: 0.9;
+  padding-left: 18px;
+  position: relative;
+}
+.advice-box ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #D4A373;
+}
+
+/* 结语 */
+.footer-section {
+  padding: 32px 24px 48px;
+  text-align: center;
+}
+.footer-section .signature {
+  font-size: 15px;
+  color: #5A6B5C;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.footer-section .note {
+  font-size: 12px;
+  color: #AAA;
+  line-height: 1.7;
+}
+.footer-section .divider {
+  width: 40px;
+  height: 2px;
+  background: #D4A373;
+  margin: 20px auto;
+  border-radius: 1px;
+}
+
+/* 小标签 */
+.tip-box {
+  background: #FAF6F0;
+  border-left: 3px solid #D4A373;
+  padding: 14px 16px;
+  border-radius: 0 10px 10px 0;
+  margin: 16px 0;
+  font-size: 13px;
+  color: #777;
+}
+
+/* 动画 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.section { animation: fadeInUp 0.6s ease both; }
+.section:nth-child(1) { animation-delay: 0.05s; }
+.section:nth-child(2) { animation-delay: 0.1s; }
+.section:nth-child(3) { animation-delay: 0.15s; }
+.section:nth-child(4) { animation-delay: 0.2s; }
+.section:nth-child(5) { animation-delay: 0.25s; }
+.section:nth-child(6) { animation-delay: 0.3s; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- 封面 -->
+<div class="hero">
+  <div class="hero-tag">专属方案</div>
+  <h1>何小姐，<br>这是一份给宝宝的<br>教育金储备方案</h1>
+  <p>两个头部产品的横向对比，没有完美的保险，只有更适合你家庭规划的选择。</p>
+  <div class="client-info">
+    <div>被保人<strong>男宝 0岁</strong></div>
+    <div>缴费期<strong>5年 × 1万美元/年</strong></div>
+    <div>规划人<strong>艺璇 Raven</strong></div>
+  </div>
+</div>
+
+<!-- 两个产品速览 -->
+<div class="section">
+  <div class="section-title"><span class="dot"></span>两个选手入场</div>
+  <div class="section-sub">都是美元储蓄分红险，玩法类似，细节有差</div>
+
+  <div class="product-card">
+    <div class="product-header">
+      <div>
+        <div class="product-name">环宇盈活储蓄计划</div>
+        <div class="product-company">友邦保险 AIA · 1931年香港开业</div>
+      </div>
+      <span class="product-badge badge-aia">回血更快</span>
+    </div>
+    <div class="product-grid">
+      <div class="item">
+        <div class="item-label">优惠后总投入</div>
+        <div class="item-value highlight">$48,800</div>
+      </div>
+      <div class="item">
+        <div class="item-label">预期回本</div>
+        <div class="item-value">第7年</div>
+      </div>
+      <div class="item">
+        <div class="item-label">30年IRR</div>
+        <div class="item-value highlight">6.60%</div>
+      </div>
+      <div class="item">
+        <div class="item-label">货币转换</div>
+        <div class="item-value">9种 · 第2年起</div>
+      </div>
+    </div>
+    <div class="product-highlight-bar">
+      第1年保费回赠 <strong>12%</strong>，优惠力度更大，前期现金价值积累更快
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-header">
+      <div>
+        <div class="product-name">信守明天多元货币计划</div>
+        <div class="product-company">保诚 Prudential · 1964年香港开业</div>
+      </div>
+      <span class="product-badge badge-pru">偿付更强</span>
+    </div>
+    <div class="product-grid">
+      <div class="item">
+        <div class="item-label">优惠后总投入</div>
+        <div class="item-value">$49,600</div>
+      </div>
+      <div class="item">
+        <div class="item-label">预期回本</div>
+        <div class="item-value">第9岁</div>
+      </div>
+      <div class="item">
+        <div class="item-label">30年IRR</div>
+        <div class="item-value">6.53%</div>
+      </div>
+      <div class="item">
+        <div class="item-label">货币转换</div>
+        <div class="item-value">6种 · 第3年起</div>
+      </div>
+    </div>
+    <div class="product-highlight-bar">
+      香港本地偿付能力 <strong>280%</strong>，标普评级 <strong>AA+</strong>，保司安全边际更厚
+    </div>
+  </div>
+</div>
+
+<!-- 核心维度对比 -->
+<div class="section" style="padding-top: 0;">
+  <div class="section-title"><span class="dot"></span>硬指标对照表</div>
+  <div class="section-sub">标绿的是这一轮的小赢家</div>
+
+  <div class="compare-table">
+    <div class="compare-row header">
+      <div style="text-align:left;padding-left:16px;">对比项</div>
+      <div>环宇盈活 AIA</div>
+      <div>信守明天 保诚</div>
+    </div>
+    <div class="compare-row data">
+      <div class="dim-label">优惠力度</div>
+      <div class="winner">回赠12%</div>
+      <div class="loser">回赠4%</div>
+    </div>
+    <div class="compare-row data">
+      <div class="dim-label">优惠后总保费</div>
+      <div class="winner">$48,800</div>
+      <div>$49,600</div>
+    </div>
+    <div class="compare-row data">
+      <div class="dim-label">预期回本</div>
+      <div class="winner">第7年</div>
+      <div>第9岁</div>
+    </div>
+    <div class="compare-row data">
+      <div class="dim-label">保证回本</div>
+      <div>第18年</div>
+      <div class="winner">第18年</div>
+    </div>
+    <div class="compare-row data">
+      <div class="dim-label">预期翻倍</div>
+      <div>第16年</div>
+      <div class="winner">第17年</div>
+    </div>
+    <div class="compare-row data">
+      <div class="dim-label">30年IRR</div>
+      <div class="winner">6.60%</div>
+      <div>6.53%</div>
+    </div>
+    <div class="compare-row data">
+      <div class="dim-label">货币种类</div>
+      <div class="winner">9种</div>
+      <div>6种</div>
+    </div>
+    <div class="compare-row data">
+      <div class="dim-label">最早可转货币</div>
+      <div class="winner">第2年起</div>
+      <div>第3年起</div>
+    </div>
+    <div class="compare-row data">
+      <div class="dim-label">偿付能力</div>
+      <div>257%</div>
+      <div class="winner">280%</div>
+    </div>
+    <div class="compare-row data">
+      <div class="dim-label">标普评级</div>
+      <div>AA-</div>
+      <div class="winner">AA+</div>
+    </div>
+  </div>
+</div>
+
+<!-- 教育金场景 -->
+<div class="section">
+  <div class="section-title"><span class="dot"></span>大学教育金提取场景</div>
+  <div class="section-sub">假设18-21岁每年领3万美元，共领12万</div>
+
+  <div class="scenario-box">
+    <div class="scenario-title">何小姐的取款剧本</div>
+    <div class="scenario-desc">宝宝18岁上大学开始，连续4年每年提取3万美元作为学费+生活费补充</div>
+    <div class="scenario-plan">
+      <span>18岁 领 $30,000</span>
+      <span class="arrow">→</span>
+      <span>19岁 领 $30,000</span>
+      <span class="arrow">→</span>
+      <span>20岁 领 $30,000</span>
+      <span class="arrow">→</span>
+      <span>21岁 领 $30,000</span>
+    </div>
+
+    <div class="result-cards">
+      <div class="result-card aia">
+        <span class="rc-tag">环宇盈活</span>
+        <div class="rc-name">提取+剩余现价总额</div>
+        <div class="rc-amount">$130,634</div>
+        <div class="rc-note">是总保费的 2.7倍</div>
+      </div>
+      <div class="result-card pru">
+        <span class="rc-tag">信守明天</span>
+        <div class="rc-name">提取+剩余现价总额</div>
+        <div class="rc-amount">$123,507</div>
+        <div class="rc-note">是总保费的 2.5倍</div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      领完12万教育金后，保单里还剩一笔「种子钱」继续滚存。如果这笔钱一直不动，到宝宝65岁时，环宇盈活账户里还有约31万，信守明天约28万。
+    </div>
+
+    <div class="chart-area">
+      <div class="chart-title">21岁时提取后剩余现金价值对比</div>
+      <div class="chart-bars">
+        <div class="chart-bar-wrap">
+          <div class="chart-bar aia" style="height: 135px;">
+            <span class="chart-bar-label">$10,634</span>
+          </div>
+          <div class="chart-bar-name">环宇盈活<br>剩余</div>
+        </div>
+        <div class="chart-bar-wrap">
+          <div class="chart-bar pru" style="height: 15px;">
+            <span class="chart-bar-label">$0</span>
+          </div>
+          <div class="chart-bar-name">信守明天<br>剩余</div>
+        </div>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top: 8px;">
+      注意：21岁提取后，信守明天的保证现金价值已归零，后续依赖非保证分红；环宇盈活还剩约1万美元保证价值打底。
+    </div>
+  </div>
+</div>
+
+<!-- 关键差异拆解 -->
+<div class="section">
+  <div class="section-title"><span class="dot"></span>三个关键差异</div>
+  <div class="section-sub">不是好坏之分，是偏好之别</div>
+
+  <div class="diff-list">
+    <div class="diff-item">
+      <div class="diff-num">1</div>
+      <div class="diff-content">
+        <h4>谁更早「回本」：差2年</h4>
+        <p>环宇盈活第7年账户价值就能超过已交保费，信守明天要到第9岁。如果你对未来10年内可能动用这笔钱有顾虑，早回血意味着更灵活。</p>
+        <span class="tag-aia">环宇盈活胜</span>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">2</div>
+      <div class="diff-content">
+        <h4>货币转换的「自由度」</h4>
+        <p>环宇盈活支持9种货币、第2年就能转；信守明天6种货币、第3年起才能转。如果宝宝未来留学目的地还没定，或者你希望多留一条货币退路，前者的弹性更大。</p>
+        <span class="tag-aia">环宇盈活胜</span>
+      </div>
+    </div>
+    <div class="diff-item">
+      <div class="diff-num">3</div>
+      <div class="diff-content">
+        <h4>保险公司的「底盘厚度」</h4>
+        <p>保诚偿付能力280%、标普AA+，友邦257%、标普AA-。从资产负债表硬度来说，保诚更厚实。分红险的长期收益是「非保证」的，底盘厚意味着极端情况下兑现承诺的能力更强。</p>
+        <span class="tag-pru">信守明天胜</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 我的建议 -->
+<div class="section">
+  <div class="advice-box">
+    <div class="advice-label">RAVEN 的建议</div>
+    <h3>如果只能二选一，我倾向环宇盈活</h3>
+    <p>原因很简单：这份方案的核心目标是<span class="highlight-text">宝宝的教育金</span>，时间线拉到18-21岁，届时你需要确定性地取出钱。</p>
+    <p>环宇盈活在几个跟你密切相关的维度上都更优：</p>
+    <ul>
+      <li>前期现金价值积累更快，回本早2年</li>
+      <li>18-21岁提取后，保单里还有保证价值兜底</li>
+      <li>优惠直接省1,200美元，实打实</li>
+      <li>货币转换更灵活，教育目的地变了也能跟得上</li>
+    </ul>
+    <p style="margin-top: 16px;">保诚的信守明天不是不好，它的底盘更厚、评级更高，适合极度看重「保司安全性」的客户。但从收益表现、回本速度和提取灵活性来看，环宇盈活对何小姐这个场景更贴合。</p>
+    <p style="margin-top: 12px; opacity: 0.7; font-size: 13px;">当然，如果你愿意，也可以两家各配一半——鸡蛋不放一个篮子里，这也是高净值客户常见的操作。</p>
+  </div>
+</div>
+
+<!-- 结尾 -->
+<div class="footer-section">
+  <div class="divider"></div>
+  <div class="signature">艺璇 Raven</div>
+  <div class="note">
+    以上数据基于保险公司官方建议书提取<br>
+  分红及非保证利益存在不确定性，实际回报或高于/低于演示<br>
+  此方案仅供何小姐参考，不构成正式投保建议
+  </div>
+</div>
+
+</div>
+</body>
+</html>
